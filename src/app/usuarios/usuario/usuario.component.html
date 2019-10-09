@@ -1,0 +1,40 @@
+<div class="row" *ngIf="loading">
+    <div class="col">
+        <div class="alert alert-info text-center">
+            <i class="fas fa-sync fa-spin fa-2x"></i>
+            <h1>Espere...</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="error">
+    <div class="col">
+        <div class="alert alert-danger text-center">
+            <i class="fas fa-times fa-2x"></i>
+            <h2>Error... {{error.status}}</h2>
+            <p>{{error.message}}</p>
+            <hr>
+            <p>{{error.url}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="!error && !loading">
+    <div class="col-3">
+        <img [src]="user.avatar" class="img-thumbnail" alt="">
+    </div>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>{{user.id}}</strong>
+            </li>
+            <li class="list-group-item">
+                <strong>{{user.first_name}}</strong>
+            </li>
+
+            <li class="list-group-item">
+                <strong>{{user.last_name}}</strong>
+            </li>
+        </ul>
+    </div>
+</div>
